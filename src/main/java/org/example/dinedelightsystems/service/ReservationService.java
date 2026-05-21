@@ -1,10 +1,10 @@
 package org.example.dinedelightsystems.service;
 
-import org.example.dine_delight.model.DiningTable;
-import org.example.dine_delight.model.Reservation;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.DiningTableRepository;
-import org.example.dine_delight.repository.ReservationRepository;
+import org.example.dinedelightsystems.model.DiningTable;
+import org.example.dinedelightsystems.model.Reservation;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.DiningTableRepository;
+import org.example.dinedelightsystems.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +31,7 @@ public class ReservationService {
 
     /**
      * Helper method to calculate total price based on guest count, duration, and table rate.
-     * Converts from cents (table DB field) → rupees.
+     * Converts from cents (table DB field) â†’ rupees.
      */
     private double calculateTotalPriceRupees(DiningTable table, int guestCount, int durationMinutes) {
         int hours = (int) Math.ceil(durationMinutes / 60.0);
@@ -66,7 +66,7 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
-    /** ✅ Book a new table with rupee-based pricing */
+    /** âœ… Book a new table with rupee-based pricing */
     @Transactional
     public Optional<Reservation> bookTable(Long tableId, User user, LocalDate date, LocalTime startTime, int durationMinutes, int guestCount) {
         DiningTable table = diningTableRepository.findWithLockingById(tableId).orElse(null);
@@ -87,7 +87,7 @@ public class ReservationService {
         reservation.setEndTime(end);
         reservation.setGuestCount(guestCount);
 
-        // ✅ Calculate in rupees
+        // âœ… Calculate in rupees
         double totalPrice = calculateTotalPriceRupees(table, guestCount, durationMinutes);
         double advancePayment = calculateAdvancePrice(totalPrice);
 
@@ -99,7 +99,7 @@ public class ReservationService {
         return Optional.of(reservationRepository.save(reservation));
     }
 
-    /** ✅ Update an existing reservation with rupee logic */
+    /** âœ… Update an existing reservation with rupee logic */
     @Transactional
     public Optional<Reservation> updateTable(Long reservationId, Long newTableId, User user, LocalDate date, LocalTime time, int durationMinutes, int guests) {
         Reservation reservation = reservationRepository.findById(reservationId).orElse(null);

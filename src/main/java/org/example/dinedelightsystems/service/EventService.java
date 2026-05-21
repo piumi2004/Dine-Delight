@@ -1,8 +1,8 @@
 package org.example.dinedelightsystems.service;
 
-import org.example.dine_delight.model.*;
-import org.example.dine_delight.repository.EventBookingRepository;
-import org.example.dine_delight.repository.EventSpaceRepository;
+import org.example.dinedelightsystems.model.*;
+import org.example.dinedelightsystems.repository.EventBookingRepository;
+import org.example.dinedelightsystems.repository.EventSpaceRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +24,7 @@ public class EventService {
         this.eventBookingRepository = eventBookingRepository;
     }
 
-    // 🔹 Find available event spaces
+    // ðŸ”¹ Find available event spaces
     public List<EventSpace> findAvailableSpaces(LocalDate date, LocalTime startTime, int durationMinutes, int guestCount) {
         LocalDateTime start = LocalDateTime.of(date, startTime);
         LocalDateTime end = start.plusMinutes(durationMinutes);
@@ -37,7 +37,7 @@ public class EventService {
                 .collect(Collectors.toList());
     }
 
-    // 🔹 Create new booking request
+    // ðŸ”¹ Create new booking request
     @Transactional
     public Optional<EventBooking> createRequest(Long spaceId, User user, LocalDate date, LocalTime startTime,
                                                 int durationMinutes, int guestCount, String services) {
@@ -62,7 +62,7 @@ public class EventService {
             return Optional.empty();
         }
 
-        // ✅ Create booking (amounts in rupees)
+        // âœ… Create booking (amounts in rupees)
         EventBooking booking = new EventBooking();
         booking.setEventSpace(space);
         booking.setUser(user);
@@ -84,22 +84,22 @@ public class EventService {
         return Optional.of(eventBookingRepository.save(booking));
     }
 
-    // 🔹 Get all bookings for a user
+    // ðŸ”¹ Get all bookings for a user
     public List<EventBooking> userBookings(User user) {
         return eventBookingRepository.findByUserOrderByStartTimeDesc(user);
     }
 
-    // 🔹 Get upcoming bookings (for dashboard)
+    // ðŸ”¹ Get upcoming bookings (for dashboard)
     public List<EventBooking> getUpcomingEventBookings(User user) {
         return eventBookingRepository.findUpcomingByUser(user, LocalDateTime.now());
     }
 
-    // 🔹 Get only paid pending bookings (for admin)
+    // ðŸ”¹ Get only paid pending bookings (for admin)
     public List<EventBooking> pendingBookings() {
         return eventBookingRepository.findPaidPendingBookings();
     }
 
-    // 🔹 Approve a booking
+    // ðŸ”¹ Approve a booking
     @Transactional
     public boolean approve(Long bookingId) {
         return eventBookingRepository.findById(bookingId)
@@ -122,7 +122,7 @@ public class EventService {
                 }).orElse(false);
     }
 
-    // 🔹 Reject a booking
+    // ðŸ”¹ Reject a booking
     @Transactional
     public boolean reject(Long bookingId) {
         return eventBookingRepository.findById(bookingId)
@@ -133,14 +133,14 @@ public class EventService {
                 }).orElse(false);
     }
 
-    // 🔹 Find booking by ID & user
+    // ðŸ”¹ Find booking by ID & user
     public EventBooking findByIdAndUser(Long id, User user) {
         return eventBookingRepository.findById(id)
                 .filter(b -> b.getUser().getId().equals(user.getId()))
                 .orElse(null);
     }
 
-    // 🔹 Update user booking
+    // ðŸ”¹ Update user booking
     @Transactional
     public boolean updateBooking(Long id, User user, LocalDate date, LocalTime time,
                                  int durationMinutes, int guests, String services) {
@@ -168,7 +168,7 @@ public class EventService {
         }).orElse(false);
     }
 
-    // 🔹 Delete a booking (only if unpaid)
+    // ðŸ”¹ Delete a booking (only if unpaid)
     @Transactional
     public boolean deleteBooking(Long bookingId, User user) {
         return eventBookingRepository.findById(bookingId)
@@ -180,7 +180,7 @@ public class EventService {
                 }).orElse(false);
     }
 
-    // 🔹 Refund advance
+    // ðŸ”¹ Refund advance
     @Transactional
     public boolean refundAdvance(Long bookingId, User user, String accountNumber) {
         return eventBookingRepository.findById(bookingId)

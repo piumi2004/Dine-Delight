@@ -1,8 +1,8 @@
 package org.example.dinedelightsystems.repository;
 
-import org.example.dine_delight.model.Order;
-import org.example.dine_delight.model.OrderStatus;
-import org.example.dine_delight.model.User;
+import org.example.dinedelightsystems.model.Order;
+import org.example.dinedelightsystems.model.OrderStatus;
+import org.example.dinedelightsystems.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

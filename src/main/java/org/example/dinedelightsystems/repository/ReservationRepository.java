@@ -1,8 +1,8 @@
 package org.example.dinedelightsystems.repository;
 
-import org.example.dine_delight.model.DiningTable;
-import org.example.dine_delight.model.Reservation;
-import org.example.dine_delight.model.User;
+import org.example.dinedelightsystems.model.DiningTable;
+import org.example.dinedelightsystems.model.Reservation;
+import org.example.dinedelightsystems.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

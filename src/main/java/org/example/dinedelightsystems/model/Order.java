@@ -23,7 +23,7 @@ public class Order {
     @Column(length = 20)
     private OrderStatus status = OrderStatus.PENDING;
 
-    // ✅ Changed to Double and renamed
+    // âœ… Changed to Double and renamed
     @Column(nullable = false)
     private Double total = 0.0;
 

@@ -1,7 +1,7 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.Reservation;
-import org.example.dine_delight.repository.ReservationRepository;
+import org.example.dinedelightsystems.model.Reservation;
+import org.example.dinedelightsystems.repository.ReservationRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

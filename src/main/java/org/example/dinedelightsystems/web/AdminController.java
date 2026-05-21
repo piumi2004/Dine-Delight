@@ -1,7 +1,7 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.DiningTable;
-import org.example.dine_delight.repository.DiningTableRepository;
+import org.example.dinedelightsystems.model.DiningTable;
+import org.example.dinedelightsystems.repository.DiningTableRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

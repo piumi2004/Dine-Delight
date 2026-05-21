@@ -1,9 +1,9 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.*;
-import org.example.dine_delight.repository.MenuItemRepository;
-import org.example.dine_delight.repository.OrderRepository;
-import org.example.dine_delight.repository.UserRepository;
+import org.example.dinedelightsystems.model.*;
+import org.example.dinedelightsystems.repository.MenuItemRepository;
+import org.example.dinedelightsystems.repository.OrderRepository;
+import org.example.dinedelightsystems.repository.UserRepository;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class CheckoutController {
         this.userRepository = userRepository;
     }
 
-    // ✅ Add to session cart
+    // âœ… Add to session cart
     @PostMapping("/buy")
     public String buyNow(@RequestParam Long id,
                          @RequestParam(defaultValue = "1") Integer qty,
@@ -41,7 +41,7 @@ public class CheckoutController {
         return "redirect:/checkout";
     }
 
-    // ✅ Show checkout page
+    // âœ… Show checkout page
     @GetMapping
     public String review(Model model, HttpSession session) {
         @SuppressWarnings("unchecked")
@@ -55,7 +55,7 @@ public class CheckoutController {
             var item = menuItemRepository.findById(e.getKey()).orElseThrow();
             int qty = e.getValue();
             lines.put(item, qty);
-            subtotal += item.getPrice() * qty; // ✅ fixed
+            subtotal += item.getPrice() * qty; // âœ… fixed
         }
 
         model.addAttribute("lines", lines);
@@ -63,7 +63,7 @@ public class CheckoutController {
         return "checkout/index";
     }
 
-    // ✅ Handle payment
+    // âœ… Handle payment
     @PostMapping
     public String pay(@RequestParam String cardNumber,
                       @RequestParam String name,
@@ -96,7 +96,7 @@ public class CheckoutController {
             int qty = Math.max(1, e.getValue());
             oi.setQuantity(qty);
 
-            // ✅ Use Double-based calculations
+            // âœ… Use Double-based calculations
             double lineTotal = item.getPrice() * qty;
             oi.setLineTotal(lineTotal);
 

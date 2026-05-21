@@ -16,7 +16,7 @@ public class MenuItem {
     @Column(length = 1000)
     private String description;
 
-    // ✅ Store price directly in rupees (Double)
+    // âœ… Store price directly in rupees (Double)
     @Column(nullable = false)
     private Double price;
 

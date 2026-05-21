@@ -1,7 +1,7 @@
 package org.example.dinedelightsystems.repository;
 
-import org.example.dine_delight.model.Inquiry;
-import org.example.dine_delight.model.InquiryReply;
+import org.example.dinedelightsystems.model.Inquiry;
+import org.example.dinedelightsystems.model.InquiryReply;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

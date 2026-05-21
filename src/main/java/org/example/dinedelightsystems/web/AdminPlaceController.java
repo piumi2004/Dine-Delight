@@ -1,9 +1,9 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.EventLocation;
-import org.example.dine_delight.model.EventSpace;
-import org.example.dine_delight.repository.EventLocationRepository;
-import org.example.dine_delight.repository.EventSpaceRepository;
+import org.example.dinedelightsystems.model.EventLocation;
+import org.example.dinedelightsystems.model.EventSpace;
+import org.example.dinedelightsystems.repository.EventLocationRepository;
+import org.example.dinedelightsystems.repository.EventSpaceRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

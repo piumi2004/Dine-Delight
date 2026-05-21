@@ -1,6 +1,6 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.service.EventService;
+import org.example.dinedelightsystems.service.EventService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

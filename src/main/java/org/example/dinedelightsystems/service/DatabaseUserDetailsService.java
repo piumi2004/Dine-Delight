@@ -1,8 +1,8 @@
 package org.example.dinedelightsystems.service;
 
-import org.example.dine_delight.model.Role;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.UserRepository;
+import org.example.dinedelightsystems.model.Role;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

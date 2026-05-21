@@ -1,7 +1,7 @@
 package org.example.dinedelightsystems.service;
 
-import org.example.dine_delight.model.*;
-import org.example.dine_delight.repository.*;
+import org.example.dinedelightsystems.model.*;
+import org.example.dinedelightsystems.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -70,7 +70,7 @@ public class ReportService {
                 LocalDate start = r.getStartTime().toLocalDate();
                 if (!start.isBefore(monthStart) && start.isBefore(monthEnd)) {
                     rc++;
-                    rrTotal += r.getTotalPrice(); // ✅ assuming now Double
+                    rrTotal += r.getTotalPrice(); // âœ… assuming now Double
                 }
             }
             reservationsCount.add(rc);
@@ -84,7 +84,7 @@ public class ReportService {
                 if (!start.isBefore(monthStart) && start.isBefore(monthEnd)) {
                     if (b.getStatus() == BookingStatus.APPROVED) {
                         ec++;
-                        erTotal += b.getTotalPrice(); // ✅ assuming now Double
+                        erTotal += b.getTotalPrice(); // âœ… assuming now Double
                     }
                 }
             }

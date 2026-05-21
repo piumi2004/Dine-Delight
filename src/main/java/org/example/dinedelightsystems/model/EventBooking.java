@@ -35,7 +35,7 @@ public class EventBooking {
     @Column(nullable = false)
     private BookingStatus status = BookingStatus.PENDING;
 
-    // ✅ Changed from cents → rupees
+    // âœ… Changed from cents â†’ rupees
     @Column(nullable = false)
     private Double totalPrice;
 

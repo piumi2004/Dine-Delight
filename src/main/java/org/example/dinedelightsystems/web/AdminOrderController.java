@@ -1,8 +1,8 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.Order;
-import org.example.dine_delight.model.OrderStatus;
-import org.example.dine_delight.repository.OrderRepository;
+import org.example.dinedelightsystems.model.Order;
+import org.example.dinedelightsystems.model.OrderStatus;
+import org.example.dinedelightsystems.repository.OrderRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.repository.MenuItemRepository;
+import org.example.dinedelightsystems.repository.MenuItemRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

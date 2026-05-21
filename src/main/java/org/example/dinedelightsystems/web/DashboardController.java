@@ -1,10 +1,10 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.OrderRepository;
-import org.example.dine_delight.repository.UserRepository;
-import org.example.dine_delight.service.EventService;
-import org.example.dine_delight.service.ReservationService;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.OrderRepository;
+import org.example.dinedelightsystems.repository.UserRepository;
+import org.example.dinedelightsystems.service.EventService;
+import org.example.dinedelightsystems.service.ReservationService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -37,13 +37,13 @@ public class DashboardController {
         var upcomingEventBookings = eventService.getUpcomingEventBookings(user);
         var allOrders = orderRepository.findAllByUserOrderByCreatedAtDesc(user);
 
-        // ✅ Updated to use Double total
+        // âœ… Updated to use Double total
         double totalSpent = allOrders.stream()
                 .filter(order -> order.getStatus().name().equals("APPROVED"))
                 .mapToDouble(order -> order.getTotal())
                 .sum();
 
-        // ✅ Reward points (1 point per LKR)
+        // âœ… Reward points (1 point per LKR)
         int rewardPoints = (int) totalSpent;
 
         model.addAttribute("upcomingReservations", upcomingReservations);

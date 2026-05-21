@@ -1,9 +1,9 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.Reservation;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.ReservationRepository;
-import org.example.dine_delight.repository.UserRepository;
+import org.example.dinedelightsystems.model.Reservation;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.ReservationRepository;
+import org.example.dinedelightsystems.repository.UserRepository;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;

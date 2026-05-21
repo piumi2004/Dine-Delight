@@ -1,9 +1,9 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.DiningTable;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.UserRepository;
-import org.example.dine_delight.service.ReservationService;
+import org.example.dinedelightsystems.model.DiningTable;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.UserRepository;
+import org.example.dinedelightsystems.service.ReservationService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

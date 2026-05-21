@@ -1,7 +1,7 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.MenuItem;
-import org.example.dine_delight.repository.MenuItemRepository;
+import org.example.dinedelightsystems.model.MenuItem;
+import org.example.dinedelightsystems.repository.MenuItemRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +54,7 @@ public class CartController {
             var item = menuItemRepository.findById(e.getKey()).orElseThrow();
             int qty = e.getValue();
             lines.put(item, qty);
-            subtotal += item.getPrice() * qty; // ✅ fixed for Double
+            subtotal += item.getPrice() * qty; // âœ… fixed for Double
         }
 
         model.addAttribute("lines", lines);

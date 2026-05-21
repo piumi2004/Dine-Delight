@@ -2,8 +2,8 @@ package org.example.dinedelightsystems.web;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.UserRepository;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.UserRepository;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;

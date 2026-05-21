@@ -19,7 +19,7 @@ public class OrderItem {
     @Column(nullable = false)
     private Integer quantity;
 
-    // ✅ Changed to Double and renamed
+    // âœ… Changed to Double and renamed
     @Column(nullable = false)
     private Double lineTotal;
 

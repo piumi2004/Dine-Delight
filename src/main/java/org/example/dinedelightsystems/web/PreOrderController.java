@@ -1,9 +1,9 @@
 package org.example.dinedelightsystems.web;
 
-import org.example.dine_delight.model.*;
-import org.example.dine_delight.repository.MenuItemRepository;
-import org.example.dine_delight.repository.OrderRepository;
-import org.example.dine_delight.repository.UserRepository;
+import org.example.dinedelightsystems.model.*;
+import org.example.dinedelightsystems.repository.MenuItemRepository;
+import org.example.dinedelightsystems.repository.OrderRepository;
+import org.example.dinedelightsystems.repository.UserRepository;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -46,11 +46,11 @@ public class PreOrderController {
         orderItem.setMenuItem(item);
         orderItem.setQuantity(Math.max(1, qty));
 
-        // ✅ Use item.getPrice() since it's now in rupees
+        // âœ… Use item.getPrice() since it's now in rupees
         double lineTotal = item.getPrice() * orderItem.getQuantity();
         orderItem.setLineTotal(lineTotal); // change your model to use 'lineTotal' (Double)
 
-        // ✅ Set totals in rupees too
+        // âœ… Set totals in rupees too
         order.setTotal(lineTotal);
 
         // Add the order item to the order list

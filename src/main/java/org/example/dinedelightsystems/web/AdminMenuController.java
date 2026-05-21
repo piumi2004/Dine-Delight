@@ -2,8 +2,8 @@ package org.example.dinedelightsystems.web;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import org.example.dine_delight.model.MenuItem;
-import org.example.dine_delight.repository.MenuItemRepository;
+import org.example.dinedelightsystems.model.MenuItem;
+import org.example.dinedelightsystems.repository.MenuItemRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +21,7 @@ public class AdminMenuController {
         this.menuItemRepository = menuItemRepository;
     }
 
-    // ✅ DTO for Add/Edit forms
+    // âœ… DTO for Add/Edit forms
     public static class MenuForm {
         @NotBlank(message = "Name is required")
         private String name;
@@ -48,7 +48,7 @@ public class AdminMenuController {
         public void setAvailable(boolean available) { this.available = available; }
     }
 
-    // ✅ Display Menu Management Page
+    // âœ… Display Menu Management Page
     @GetMapping
     public String index(Model model) {
         model.addAttribute("items", menuItemRepository.findAll());
@@ -56,11 +56,11 @@ public class AdminMenuController {
         return "admin/menu";
     }
 
-    // ✅ Create a new Menu Item
+    // âœ… Create a new Menu Item
     @PostMapping
     public String create(@Valid @ModelAttribute("menuForm") MenuForm form, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println("⚠️ Validation failed for new item: " + result.getAllErrors());
+            System.out.println("âš ï¸ Validation failed for new item: " + result.getAllErrors());
             return "redirect:/admin/menu?error";
         }
 
@@ -72,11 +72,11 @@ public class AdminMenuController {
         item.setAvailable(form.isAvailable());
 
         menuItemRepository.save(item);
-        System.out.println("✅ Added new menu item: " + item.getName());
+        System.out.println("âœ… Added new menu item: " + item.getName());
         return "redirect:/admin/menu?created";
     }
 
-    // ✅ Inline Edit - Update an existing item
+    // âœ… Inline Edit - Update an existing item
     @PostMapping("/{id}")
     public String update(@PathVariable Long id,
                          @RequestParam String name,
@@ -95,19 +95,19 @@ public class AdminMenuController {
         item.setAvailable(available);
 
         menuItemRepository.save(item);
-        System.out.println("✏️ Updated menu item ID: " + id + " (" + item.getName() + ")");
+        System.out.println("âœï¸ Updated menu item ID: " + id + " (" + item.getName() + ")");
         return "redirect:/admin/menu?updated";
     }
 
-    // ✅ Delete Menu Item
+    // âœ… Delete Menu Item
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         if (menuItemRepository.existsById(id)) {
             menuItemRepository.deleteById(id);
-            System.out.println("🗑 Deleted menu item ID: " + id);
+            System.out.println("ðŸ—‘ Deleted menu item ID: " + id);
             return "redirect:/admin/menu?deleted";
         }
-        System.out.println("⚠️ Attempted to delete non-existent menu item ID: " + id);
+        System.out.println("âš ï¸ Attempted to delete non-existent menu item ID: " + id);
         return "redirect:/admin/menu?error";
     }
 }

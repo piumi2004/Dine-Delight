@@ -1,10 +1,10 @@
 package org.example.dinedelightsystems.web;
 
 import jakarta.validation.Valid;
-import org.example.dine_delight.model.Role;
-import org.example.dine_delight.model.User;
-import org.example.dine_delight.repository.UserRepository;
-import org.example.dine_delight.web.dto.RegisterRequest;
+import org.example.dinedelightsystems.model.Role;
+import org.example.dinedelightsystems.model.User;
+import org.example.dinedelightsystems.repository.UserRepository;
+import org.example.dinedelightsystems.web.dto.RegisterRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

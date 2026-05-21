@@ -29,7 +29,7 @@ public class Reservation {
     @Column(nullable = false)
     private int guestCount;
 
-    // ✅ Changed from cents → rupees
+    // âœ… Changed from cents â†’ rupees
     @Column(nullable = false)
     private Double totalPrice;
 
